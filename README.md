@@ -13,30 +13,8 @@
 - **灵活配置**：支持命令行参数覆盖配置文件
 
 ## 项目结构
-ui-automation-framework/
-├── config/                  # 配置文件
-│   ├── config.yaml          # 全局配置
-│   └── locators.yaml        # 元素定位器
-├── src/                     # 框架核心代码
-│   ├── driver.py            # Playwright驱动封装
-│   ├── test_case_runner.py  # 测试用例执行器
-│   ├── page_objects/        # 页面对象
-│   │   ├── base_page.py     # 基类
-│   │   ├── login_page.py    # 登录页面
-│   │   └── search_page.py   # 搜索页面
-│   └── utils/               # 工具类
-│       ├── config_parser.py # 配置解析
-│       ├── locator_parser.py # 定位器解析
-│       └── screenshot.py    # 截图工具
-├── tests/                   # 测试用例
-│   ├── test_login.yaml
-│   └── test_search.yaml
-├── reports/                 # 测试报告
-├── screenshots/             # 截图
-├── conftest.py              # Pytest配置
-├── pytest_runner.py         # 测试运行入口
-├── requirements.txt         # 依赖清单
-└── README.md                # 说明文档
+<img width="353" height="481" alt="image" src="https://github.com/user-attachments/assets/bef56109-319f-4cc7-907b-becc0bba3d5d" />
+
 ## 安装步骤
 
 1. 克隆项目并进入目录
