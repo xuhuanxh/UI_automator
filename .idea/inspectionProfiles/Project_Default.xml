@@ -1,0 +1,136 @@
+<component name="InspectionProjectProfileManager">
+  <profile version="1.0">
+    <option name="myName" value="Project Default" />
+    <inspection_tool class="PyPackageRequirementsInspection" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="ignoredPackages">
+        <list>
+          <option value="aioredis" />
+          <option value="annotated-types" />
+          <option value="anyio" />
+          <option value="APScheduler" />
+          <option value="asgiref" />
+          <option value="async-timeout" />
+          <option value="attrs" />
+          <option value="autobahn" />
+          <option value="Automat" />
+          <option value="bcrypt" />
+          <option value="beautifulsoup4" />
+          <option value="bs4" />
+          <option value="certifi" />
+          <option value="cffi" />
+          <option value="channels" />
+          <option value="channels-redis" />
+          <option value="charset-normalizer" />
+          <option value="click" />
+          <option value="coloredlogs" />
+          <option value="constantly" />
+          <option value="coreapi" />
+          <option value="coreapi-cli" />
+          <option value="coreschema" />
+          <option value="cryptography" />
+          <option value="daphne" />
+          <option value="decorator" />
+          <option value="demjson" />
+          <option value="demjson3" />
+          <option value="Deprecated" />
+          <option value="Django" />
+          <option value="django-apscheduler" />
+          <option value="django-bulk-update-or-create" />
+          <option value="django-cors-headers" />
+          <option value="django-enum-choices" />
+          <option value="djangorestframework" />
+          <option value="djangorestframework-simplejwt" />
+          <option value="dnspython" />
+          <option value="docker" />
+          <option value="drf-yasg" />
+          <option value="dwebsocket" />
+          <option value="exceptiongroup" />
+          <option value="fabric" />
+          <option value="fastapi" />
+          <option value="flatbuffers" />
+          <option value="gevent" />
+          <option value="greenlet" />
+          <option value="gripcontrol" />
+          <option value="gunicorn" />
+          <option value="h11" />
+          <option value="hiredis" />
+          <option value="httpcore" />
+          <option value="httpx" />
+          <option value="humanfriendly" />
+          <option value="hyperlink" />
+          <option value="idna" />
+          <option value="incremental" />
+          <option value="inflection" />
+          <option value="invoke" />
+          <option value="itypes" />
+          <option value="Jinja2" />
+          <option value="jpush" />
+          <option value="lxml" />
+          <option value="MarkupSafe" />
+          <option value="mpmath" />
+          <option value="msgpack" />
+          <option value="munch" />
+          <option value="numpy" />
+          <option value="onnxruntime" />
+          <option value="openapi-codec" />
+          <option value="opencv-python-headless" />
+          <option value="packaging" />
+          <option value="pandas" />
+          <option value="paramiko" />
+          <option value="pillow" />
+          <option value="protobuf" />
+          <option value="pubcontrol" />
+          <option value="pyasn1" />
+          <option value="pyasn1-modules" />
+          <option value="pycparser" />
+          <option value="pydantic" />
+          <option value="pydantic_core" />
+          <option value="PyJWT" />
+          <option value="pymongo" />
+          <option value="PyMySQL" />
+          <option value="PyNaCl" />
+          <option value="pyOpenSSL" />
+          <option value="pyreadline3" />
+          <option value="python-dateutil" />
+          <option value="python-telegram-bot" />
+          <option value="pytz" />
+          <option value="PyYAML" />
+          <option value="redis" />
+          <option value="requests" />
+          <option value="service-identity" />
+          <option value="simplejson" />
+          <option value="six" />
+          <option value="sniffio" />
+          <option value="soupsieve" />
+          <option value="SQLAlchemy" />
+          <option value="sqlparse" />
+          <option value="starlette" />
+          <option value="sympy" />
+          <option value="Twisted" />
+          <option value="txaio" />
+          <option value="typing_extensions" />
+          <option value="tzdata" />
+          <option value="tzlocal" />
+          <option value="uritemplate" />
+          <option value="urllib3" />
+          <option value="user-agent" />
+          <option value="websocket" />
+          <option value="websocket-client" />
+          <option value="Werkzeug" />
+          <option value="wrapt" />
+          <option value="xmltodict" />
+          <option value="zope.event" />
+          <option value="zope.interface" />
+          <option value="scipy" />
+        </list>
+      </option>
+    </inspection_tool>
+    <inspection_tool class="PyUnresolvedReferencesInspection" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="ignoredIdentifiers">
+        <list>
+          <option value="pytest.*" />
+        </list>
+      </option>
+    </inspection_tool>
+  </profile>
+</component>

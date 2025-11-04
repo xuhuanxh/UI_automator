@@ -1,0 +1,50 @@
+test_successful_search:
+  description: "测试成功搜索功能"
+  page_object: "SearchPage"
+  steps:
+    - action: "load"
+      description: "加载搜索页面"
+
+    - action: "call_method"
+      args: ["perform_search", "test keyword"]
+      description: "执行搜索"
+
+    - action: "assert_greater_than"
+      method: "get_search_results_count"
+      expected: 0
+      description: "验证有搜索结果"
+
+test_no_results_search:
+  description: "测试无结果搜索"
+  page_object: "SearchPage"
+  steps:
+    - action: "load"
+      description: "加载搜索页面"
+
+    - action: "call_method"
+      args: ["perform_search", "invalid_search_term_123456"]
+      description: "执行无效搜索"
+
+    - action: "assert_equal"
+      method: "get_search_results_count"
+      expected: 0
+      description: "验证结果数量为0"
+
+    - action: "assert_true"
+      method: "is_no_results_message_displayed"
+      description: "验证无结果提示显示"
+
+test_empty_search:
+  description: "测试空搜索"
+  page_object: "SearchPage"
+  steps:
+    - action: "load"
+      description: "加载搜索页面"
+
+    - action: "call_method"
+      args: ["perform_search", ""]
+      description: "执行空搜索"
+
+    - action: "assert_true"
+      method: "is_no_results_message_displayed"
+      description: "验证无结果提示显示"

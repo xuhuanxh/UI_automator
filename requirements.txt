@@ -1,0 +1,6 @@
+allure_python_commons==2.13.2
+playwright==1.55.0
+pytest==7.4.0
+PyYAML==6.0.1
+PyYAML==6.0.3
+selenium==4.38.0

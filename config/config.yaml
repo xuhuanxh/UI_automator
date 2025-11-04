@@ -1,0 +1,21 @@
+# 全局默认配置
+base_url: "https://example.com"
+browser: "chromium"  # 支持: chromium, firefox, webkit
+headless: true
+timeout:
+  page_load: 30000    # 页面加载超时(毫秒)
+  element: 5000       # 元素操作超时(毫秒)
+
+# 多环境配置
+environments:
+  dev:
+    base_url: "https://dev.example.com"
+  test:
+    base_url: "https://test.example.com"
+  prod:
+    base_url: "https://prod.example.com"
+
+# 报告与截图配置
+report:
+  allure_results: "reports/allure-results"
+  screenshots: "screenshots"

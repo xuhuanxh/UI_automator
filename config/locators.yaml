@@ -1,0 +1,18 @@
+# 搜索页面元素
+search_page:
+  url: "/search"
+  search_input: "input#search-box"
+  search_button: "button#search-btn"
+  results_container: "div.results-container"
+  result_item: "div.result-item"
+  no_results_message: "p.no-results"
+
+# 登录页面元素
+login_page:
+  url: "/login"
+  username_input: "input[name='username']"
+  password_input: "input[name='password']"
+  login_button: "button#submit-login"
+  error_message: "div.error-message"
+  success_message: "div.success-message"
+    

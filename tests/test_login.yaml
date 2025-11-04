@@ -1,0 +1,31 @@
+test_successful_login:
+  description: "测试使用正确 credentials 登录"
+  page_object: "LoginPage"
+  steps:
+    - action: "load"
+      description: "加载登录页面"
+    - action: "call_method"
+      args: ["input_login_info", "${LOGIN.USERNAME}", "${LOGIN.PASSWORD}"]
+      description: "输入正确的用户名和密码"
+    - action: "call_method"
+      args: ["click_login_btn"]
+      description: "点击登录按钮"
+    - action: "assert_true"
+      method: "is_login_success"
+      description: "验证登录成功"
+
+test_wrong_password_login:
+  description: "测试使用错误密码登录"
+  page_object: "LoginPage"
+  steps:
+    - action: "load"
+      description: "加载登录页面"
+    - action: "call_method"
+      args: ["input_login_info", "${LOGIN.USERNAME}", "wrong_password_123"]
+      description: "输入正确用户名和错误密码"
+    - action: "call_method"
+      args: ["click_login_btn"]
+      description: "点击登录按钮"
+    - action: "assert_true"
+      method: "is_error_message_displayed"
+      description: "验证错误提示显示"
