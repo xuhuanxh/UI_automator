@@ -21,7 +21,11 @@ test_wrong_password_login:
     - action: "load"
       description: "加载登录页面"
     - action: "call_method"
-      args: ["input_login_info", "${LOGIN.USERNAME}", "wrong_password_123"]
+      # ${RANDOM_STRING:8},  # 8位随机用户名
+      # ${RANDOM_EMAIL},     # 随机邮箱
+      # Pass123${RANDOM_INT:10-99},  # 带随机数的密码
+      # ${RANDOM_PHONE}      # 随机手机号
+      args: ["input_login_info", "${LOGIN.USERNAME}", "${RANDOM_STRING:8}"]
       description: "输入正确用户名和错误密码"
     - action: "call_method"
       args: ["click_login_btn"]

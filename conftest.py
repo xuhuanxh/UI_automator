@@ -26,6 +26,7 @@ def locator_parser():
 
 @pytest.fixture(scope="function")
 def driver(config):
+    """浏览器驱动Fixture，每个测试函数创建一个新实例"""
     driver = Driver(config)
     driver.start()
     yield driver

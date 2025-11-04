@@ -2,6 +2,7 @@ import allure
 from src.page_objects.base_page import BasePage
 from src.utils.screenshot import take_screenshot
 from src.utils.config_parser import ConfigParser
+from src.utils.data_generator import DataGenerator
 
 
 class TestCaseRunner:
@@ -10,13 +11,16 @@ class TestCaseRunner:
         self.config = config
         self.page_object = page_object
         self.screenshot_dir = config.get("report.screenshots")
+        self.data_generator = DataGenerator()
 
     def resolve_variable(self, value):
         """解析变量占位符（如${BASE_URL}）"""
-        if isinstance(value, str) and value.startswith("${") and value.endswith("}"):
-            var_name = value[2:-1]
-            return self.config.get(var_name.lower()) or value
-        return value
+        if not isinstance(value, str) or not value.startswith("${") or not value.endswith("}"):
+            return value
+        var_name = value[2:-1]
+        if var_name.startswith("RANDOM_"):
+            return self._generate_dynamic_data(var_name)
+        return self.config.get(var_name.lower()) or value
 
     def run_step(self, step):
         """执行单个测试步骤"""
@@ -86,3 +90,40 @@ class TestCaseRunner:
                     attachment_type=allure.attachment_type.PNG
                 )
                 raise  # 重新抛出异常，标记测试失败
+
+    def _generate_dynamic_data(self, var_name:str):
+        """根据动态类型生成动态数据"""
+        # 拆分类型和参数（如RANDOM_STRING:10 -> 类型=RANDOM_STRING，参数=10）
+        parts = var_name.split(":", 1)
+        data_type = parts[0]
+        params = parts[1:] if len(parts) > 1 else ""
+
+        # 映射数据类型到生成方法
+        data_methods = {
+            "RANDOM_STRING": self._handle_random_string,
+            "RANDOM_EMAIL": lambda: self.data_generator.random_email(),
+            "RANDOM_PHONE": lambda: self.data_generator.random_phone(),
+            "RANDOM_INT": self._handle_random_int,
+            "RANDOM_NAME": lambda: self.data_generator.random_name()
+        }
+
+        if data_type not in data_methods:
+            raise ValueError(f"不支持的数据类型：{data_type}")
+
+        return data_methods[data_type]()
+
+    def _handle_random_string(self, params: str = "8"):
+        """处理RANDOM_STRING"""
+        try:
+            length = int(params)
+            return self.data_generator.random_string(length)
+        except ValueError:
+            raise ValueError(f"RANDOM_STRING参数格式错误，应为整数（如RANDOM_STRING:10），实际为: {params}")
+
+    def _handle_random_int(self, params: str = "1-100"):
+        """处理RANDOM_INT"""
+        try:
+            start, end = map(int, params.split("-"))
+            return self.data_generator.random_int(start, end)
+        except ValueError:
+            raise ValueError(f"RANDOM_INT参数格式错误，应为start-end（如RANDOM_INT:1-10），实际为: {params}")
